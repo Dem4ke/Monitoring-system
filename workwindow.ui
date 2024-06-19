@@ -60,16 +60,16 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="waterLevelButton">
             <property name="text">
-             <string>PushButton</string>
+             <string>Level of water</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="beaufordScaleButton">
             <property name="text">
-             <string>PushButton</string>
+             <string>Beauford scale</string>
             </property>
            </widget>
           </item>
@@ -109,6 +109,8 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen_project"/>
+    <addaction name="separator"/>
+    <addaction name="actionLog_out"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -133,6 +135,11 @@
   <action name="actionOpen_project">
    <property name="text">
     <string>Open project</string>
+   </property>
+  </action>
+  <action name="actionLog_out">
+   <property name="text">
+    <string>Log out</string>
    </property>
   </action>
  </widget>

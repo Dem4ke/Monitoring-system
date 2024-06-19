@@ -13,6 +13,7 @@ namespace monitoring {
  public:
      Server();
 
+ private:
      // Work tools
      void openDataToRead(const QString file);
      void openDataToWrite(const QString file);
@@ -20,10 +21,12 @@ namespace monitoring {
      QString firstArgFromBase(QString& line);
      QString secondArgFromBase(QString& line);
 
+ public:
      // Water info
      std::vector<QString> getWaterNames();
      std::vector<std::pair<QString, QString>> openProject(QString waterName);
 
+ public:
      // Users
      bool isUserExists(QString& login);
      bool isPasswordCorrect(std::vector<QString>& userInfo);

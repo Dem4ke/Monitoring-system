@@ -2,6 +2,7 @@
 #define WORKWINDOW_H
 
 #include "choosetheproject.h"
+#include "qcustomplot.h"
 
 #include <QMainWindow>
 
@@ -17,14 +18,18 @@ namespace monitoring {
      explicit WorkWindow(QWidget *parent = nullptr);
      ~WorkWindow();
 
-     void drawPlots();
+     void drawPlots(QString project);
  private slots:
      void on_actionOpen_project_triggered();
+
+     void on_actionLog_out_triggered();
 
  private:
      Ui::WorkWindow *ui;
      ChooseTheProject *chooseTheProject;
+     QCustomPlot plot;
 
+     QString project;
      Server server;
  };
 }
