@@ -56,6 +56,37 @@ namespace monitoring {
      return second;
  }
 
+ // Convert current date to seconds from 01.01.1970
+ long int Server::currentDateInSeconds(int currentDate) {
+     long int seconds = 0;
+
+
+     return seconds;
+ }
+
+ // Search minimum and maximum value
+ double Server::minValue(QVector<double>& input) {
+     double min = input[0];
+
+     for (auto& i : input) {
+         if (min > i) {
+             min = i;
+         }
+     }
+     return min;
+ }
+
+ double Server::maxValue(QVector<double> &input) {
+     double max = input[0];
+
+     for (auto& i : input) {
+         if (max < i) {
+             max = i;
+         }
+     }
+     return max;
+ }
+
  // WATER INFO
  std::vector<QString> Server::getWaterNames() {
      std::vector<QString> waterNames;
@@ -73,10 +104,13 @@ namespace monitoring {
  }
 
  // Open the project which interested by user
- std::vector<std::pair<QString, QString>> Server::openProject(QString waterName) {
-     std::vector<std::pair<QString, QString>> waterLevel;
+ void Server::openProject(QString waterName, QVector<std::pair<QString, QString>>& projectInfo) {
+     // сделать switch зависящий от разных графиков
+     // передавать битовую маску или индекс на определенный график
+  //   switch(plotIndex) {
 
-     if (waterName.toStdString() == "Gulf of Finland") {
+    // }
+   //  if (waterName == "Gulf of Finland") {
          openDataToRead(waterInfo);
          QTextStream readStream(&readWriteInData);
 
@@ -84,12 +118,12 @@ namespace monitoring {
              QString line = readWriteInData.readLine();
              QString first = firstArgFromBase(line);
              QString second = secondArgFromBase(line);
-             waterLevel.push_back({ first, second });
+             projectInfo.push_back({ first, second });
          }
-     }
+ //    }
+
 
      closeData();
-     return waterLevel;
  }
 
  // USERS

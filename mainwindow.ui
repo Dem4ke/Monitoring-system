@@ -24,7 +24,7 @@
        <item>
         <widget class="QPushButton" name="singIn">
          <property name="text">
-          <string>Sing In</string>
+          <string>Sign In</string>
          </property>
         </widget>
        </item>

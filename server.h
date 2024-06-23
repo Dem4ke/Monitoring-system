@@ -4,8 +4,8 @@
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+#include <QVector>
 #include <vector>
-#include <unordered_map>
 
 namespace monitoring {
 
@@ -22,9 +22,14 @@ namespace monitoring {
      QString secondArgFromBase(QString& line);
 
  public:
+     long int currentDateInSeconds(int currentDate);
+     double minValue(QVector<double>& input);
+     double maxValue(QVector<double>& input);
+
+ public:
      // Water info
      std::vector<QString> getWaterNames();
-     std::vector<std::pair<QString, QString>> openProject(QString waterName);
+     void openProject(QString waterName, QVector<std::pair<QString, QString>>& projectInfo);
 
  public:
      // Users
@@ -36,7 +41,7 @@ namespace monitoring {
      const QString dataPath = "DataBase/";
      const QString usersTable = "users.txt";
      const QString waterTable = "nameOfWaters.txt";
-     const QString waterInfo = "Level of water Gulf of Finland.txt";
+     const QString waterInfo = "Level_of_water_Gulf_of_Finland.txt";
 
      QFile readWriteInData;
      QTextStream writeStream;

@@ -18,17 +18,23 @@ namespace monitoring {
      explicit WorkWindow(QWidget *parent = nullptr);
      ~WorkWindow();
 
-     void drawPlots(QString project);
+     void drawWaterLevelPlots(QString project);
+     void drawBeaufortScalePlots(QString project);
+     bool isUserWantToLeave();
+
  private slots:
      void on_actionOpen_project_triggered();
-
      void on_actionLog_out_triggered();
+     void on_waterLevelButton_clicked();
+
+     void on_beaufordScaleButton_clicked();
 
  private:
      Ui::WorkWindow *ui;
      ChooseTheProject *chooseTheProject;
-     QCustomPlot plot;
 
+     QVector<std::pair<QString, QString>> currentProject;
+     bool changeAccount = false;
      QString project;
      Server server;
  };
